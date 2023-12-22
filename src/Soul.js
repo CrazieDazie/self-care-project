@@ -1,16 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { data } from "./dataForSoul";
 import './App.css';
-import LoaderPage from "./Loader/LoaderPage";
 
 function Soul() {
-
-    const [stateLoader, setStateLoader] = useState(true);
-
-    useEffect(() => {
-      const timer = setTimeout(() => setStateLoader(false), 3000);
-      return () => clearTimeout(timer)
-    }, [])
 
     const [place, setPlace] = useState(0);
     const {name, description, image} = data[place];
@@ -36,9 +28,6 @@ function Soul() {
       }
 
     return (<div >
-
-        { stateLoader && <LoaderPage/>}
-
         <div className="layout-container">
         <h1 className="title-page">Self-Care for the Soul</h1>
         <h2>Does anyone else feel the need for a hard reset, a refocus on physical and mental wellness? In order to actually hit the Hard Reset button, there is nothing better than travelling and exploring new countries, cities, towns and wonders of the nature. Here are some great and not widely known locations to start your Bucket List.</h2>
@@ -66,7 +55,6 @@ function Soul() {
         </div>
         
         </div>)
-
 
 }
 
